@@ -1,11 +1,19 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_ecommerce/presentation/splash/splash_cubit.dart';
+import 'package:flutter_ecommerce/presentation/splash/splash_screen.dart';
 import 'package:flutter_ecommerce/presentation/theme/app_theme.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
+import 'di/app_modules.dart';
 import 'l10n/app_localizations.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await provideDependencies();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -39,12 +47,9 @@ class MyApp extends StatelessWidget {
             child: child ?? const SizedBox.shrink(),
           );
         },
-        home: Center(
-          child: Scaffold(
-            body: Center(
-              child: Text("Welcome Flutter"),
-            ),
-          ),
+        home: BlocProvider<SplashCubit>(
+          create: (_) => getIt<SplashCubit>(),
+          child: const SplashScreen(),
         ),
       ),
     );
