@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-import '../../../constants/constants.dart';
+import '../../../../constants/constants.dart';
+
 
 class UserDto {
   final String uid;

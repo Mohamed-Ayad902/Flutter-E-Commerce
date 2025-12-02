@@ -1,7 +1,8 @@
 import 'package:flutter_ecommerce/core/exceptions/exceptions.dart';
-import 'package:flutter_ecommerce/core/feature/authentication/domain/auth_repo.dart';
-import 'package:flutter_ecommerce/core/feature/authentication/domain/create_account_request.dart';
 import 'package:flutter_ecommerce/core/interactor/remote_use_case.dart';
+
+import 'auth_repo.dart';
+import 'create_account_request.dart';
 
 class CreateAccountUC extends UseCaseRemote<void, CreateAccountRequest> {
   final IAuthRepo _repo;

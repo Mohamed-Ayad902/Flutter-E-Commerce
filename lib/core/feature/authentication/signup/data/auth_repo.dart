@@ -1,9 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_ecommerce/core/constants/constants.dart';
-import 'package:flutter_ecommerce/core/feature/authentication/domain/auth_repo.dart';
-import 'package:flutter_ecommerce/core/feature/authentication/domain/create_account_request.dart';
 import 'package:flutter_ecommerce/core/firebase/authentication_utils.dart';
 import 'package:flutter_ecommerce/core/firebase/firestore_utils.dart';
+
+import '../domain/auth_repo.dart';
+import '../domain/create_account_request.dart';
 
 class AuthRepo implements IAuthRepo{
   final FirebaseUtils _firestore;
