@@ -10,6 +10,7 @@ import '../authentication/create/create_account_cubit.dart';
 import '../authentication/create/create_account_screen.dart';
 import '../authentication/login/login_cubit.dart';
 import '../authentication/login/login_screen.dart';
+import '../components/button.dart';
 import '../components/utils.dart';
 import '../onboarding/onboarding_cubit.dart';
 import '../theme/app_theme.dart';
@@ -158,7 +159,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   Widget build(BuildContext context) {
     final dimens = AppTheme.dimensOf(context);
     final colors = AppTheme.colorsOf(context);
-    final typo = AppTheme.textThemeOf(context);
     final strings = context.localization;
     final onboardingPages = context.onboardingPages;
 
@@ -192,34 +192,14 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     unselectedColor: colors.onSurface.withValues(alpha: 0.2),
                   ),
                   SizedBox(height: dimens.medium),
-                  SizedBox(
-                    width: double.infinity,
-                    height: dimens.huge,
-                    child: FilledButton(
-                      style: FilledButton.styleFrom(
-                        backgroundColor: colors.primary,
-                        foregroundColor: colors.onPrimary,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(dimens.huge)),
-                      ),
-                      onPressed: () => _navigateToCreateAccount(),
-                      child: Text(
-                        strings.createAccount,
-                        style:
-                            typo.titleMedium?.copyWith(color: colors.onPrimary),
-                      ),
-                    ),
+                  AppButton(
+                    text: strings.createAccount,
+                    onPressed: () => _navigateToCreateAccount(),
                   ),
                   SizedBox(height: dimens.extraSmall),
-                  SizedBox(
-                    width: double.infinity,
-                    child: TextButton(
-                      onPressed: () => _navigateToLogin(),
-                      child: Text(
-                        strings.alreadyHaveAccount,
-                        style: typo.bodyMedium?.copyWith(color: colors.primary),
-                      ),
-                    ),
+                  AppTextButton(
+                    text: strings.alreadyHaveAccount,
+                    onPressed: () => _navigateToLogin(),
                   ),
                 ],
               )

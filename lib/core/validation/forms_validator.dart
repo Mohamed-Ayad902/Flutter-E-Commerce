@@ -11,11 +11,21 @@ class FormValidators {
     return const ValidationResult.valid();
   }
 
-  static ValidationResult validatePassword(String? raw) {
+  static ValidationResult validatePassword(String? raw, {int minimumChars = 8}) {
     final text = raw ?? '';
-    if (text.isEmpty) return const ValidationResult.invalid(code: ValidationErrorCode.empty);
-    if (text.length < 8) return const ValidationResult.invalid(code: ValidationErrorCode.tooShort, params: [8]);
-    final passwordRegex = RegExp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$');
+    if (text.isEmpty) {
+      return const ValidationResult.invalid(code: ValidationErrorCode.empty);
+    }
+    if (text.length < minimumChars) {
+      return ValidationResult.invalid(code: ValidationErrorCode.tooShort, params: [minimumChars]);
+    }
+
+    final passwordRegex = RegExp(
+        '^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@\$!%*?&])[A-Za-z\\d@\$!%*?&]{'
+            '$minimumChars'
+            ',}\$'
+    );
+
     if (!passwordRegex.hasMatch(text)) {
       return const ValidationResult.invalid(code: ValidationErrorCode.invalidPassword);
     }
@@ -29,10 +39,10 @@ class FormValidators {
     return const ValidationResult.valid();
   }
 
-  static ValidationResult validateName(String? raw) {
+  static ValidationResult validateName(String? raw,{int maxChars = 50}) {
     final text = raw?.trim() ?? '';
     if (text.isEmpty) return const ValidationResult.invalid(code: ValidationErrorCode.empty);
-    if (text.length > 50) return const ValidationResult.invalid(code: ValidationErrorCode.tooLong, params: [50]);
+    if (text.length > maxChars) return ValidationResult.invalid(code: ValidationErrorCode.tooLong, params: [maxChars]);
     return const ValidationResult.valid();
   }
 

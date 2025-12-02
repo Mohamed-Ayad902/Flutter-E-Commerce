@@ -28,6 +28,4 @@ enum ValidationErrorCode {
   invalidPassword,
   passwordMismatch,
   invalidPhoneNumber,
-  imageTooLarge,
-  imageNotSupported,
 }
