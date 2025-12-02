@@ -1,4 +1,5 @@
 import 'package:flutter_ecommerce/di/storage_module.dart';
+import 'package:flutter_ecommerce/presentation/authentication/create/di/create_account_module.dart';
 import 'package:flutter_ecommerce/presentation/authentication/login/di/login_module.dart';
 import 'package:get_it/get_it.dart';
 
@@ -13,4 +14,5 @@ Future<void> provideDependencies({bool autoStartGetNotes = false}) async {
 
   await registerOnboardingModule(getIt);
   await registerLoginModule(getIt);
+  await registerCreateAccountModule(getIt);
 }

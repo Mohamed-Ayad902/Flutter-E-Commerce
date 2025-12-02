@@ -11,7 +11,7 @@ class FormField<T> {
   final T value;
   final ValidationResult result;
 
-  FormField(this.value, {this.result = const ValidationResult.valid()});
+  const FormField(this.value, {this.result = const ValidationResult.valid()});
 
   FormField<T> copyWith({
     T? value,

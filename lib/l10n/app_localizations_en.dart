@@ -58,6 +58,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get password => 'Password';
 
   @override
+  String get rePassword => 'Confirm Password';
+
+  @override
+  String get rePasswordConfirm => 'Confirm your Password';
+
+  @override
   String get createPassword => 'Create your password';
 
   @override
@@ -97,10 +103,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get loginAccountSubtitle => 'Please login with registered account';
 
   @override
-  String get emailOrPhoneNumber => 'Email or Phone Number';
+  String get emailAddress => 'Email address';
 
   @override
-  String get enterEmailOrPhoneNumber => 'Enter your email or phone number';
+  String get enterEmailAddress => 'Enter your email address';
 
   @override
   String get forgotPassword => 'Forgot Password?';
@@ -119,6 +125,12 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get signInWithFacebook => 'Sign In with Facebook';
+
+  @override
+  String get signUpWithFacebook => 'Sign Up with Facebook';
+
+  @override
+  String get signUpWithGoogle => 'Sign Up with Google';
 
   @override
   String get enterYourEmailOrPhoneNumber => 'Enter your mail or phone number';

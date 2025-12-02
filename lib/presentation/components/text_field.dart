@@ -66,6 +66,7 @@ class _AppTextFieldState extends State<AppTextField> {
     final typo = AppTheme.textThemeOf(context);
 
     final padding = dimens.small + dimens.extraSmall;
+    final borderRadiusValue = dimens.smallMedium;
 
     final dynamicIconColor = _hasText ? colors.primary : colors.outline;
     final dynamicHintColor = _hasText ? colors.onSurface : colors.outline;
@@ -112,11 +113,29 @@ class _AppTextFieldState extends State<AppTextField> {
           onChanged: widget.onChanged,
           obscureText: _isObscured,
           decoration: InputDecoration(
-            border: InputBorder.none,
+            // the overall shape and border for all states
+            border: OutlineInputBorder(
+              borderSide: BorderSide(color: colors.onInverseSurface),
+              borderRadius: BorderRadius.circular(borderRadiusValue),
+            ),
+
+            // enabled (unfocused) state appearance
             enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(color: colors.onInverseSurface),
-              borderRadius: BorderRadius.circular(dimens.smallMedium),
+              borderRadius: BorderRadius.circular(borderRadiusValue),
             ),
+
+            // focused state appearance for added or modified
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: colors.primary, width: dimens.extraSmall / 4),
+              borderRadius: BorderRadius.circular(borderRadiusValue),
+            ),
+
+            errorBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: colors.error, width: dimens.extraSmall / 4),
+            borderRadius: BorderRadius.circular(borderRadiusValue),
+            ),
+
             hintText: widget.hintText,
             hintStyle: TextStyle(color: dynamicHintColor),
             fillColor: colors.onInverseSurface,
