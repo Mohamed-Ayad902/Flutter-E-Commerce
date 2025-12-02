@@ -260,6 +260,120 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Congratulation! your account already created.\nPlease login to get amazing experience.'**
   String get congratulationsRegister;
+
+  /// No description provided for @loginAccountTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Login Account'**
+  String get loginAccountTitle;
+
+  /// No description provided for @loginAccountSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Please login with registered account'**
+  String get loginAccountSubtitle;
+
+  /// No description provided for @emailOrPhoneNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Email or Phone Number'**
+  String get emailOrPhoneNumber;
+
+  /// No description provided for @enterEmailOrPhoneNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your email or phone number'**
+  String get enterEmailOrPhoneNumber;
+
+  /// No description provided for @forgotPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Forgot Password?'**
+  String get forgotPassword;
+
+  /// No description provided for @signIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign In'**
+  String get signIn;
+
+  /// No description provided for @dontHaveAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Don\'t have an account? Signup'**
+  String get dontHaveAccount;
+
+  /// No description provided for @orUsingOtherMethod.
+  ///
+  /// In en, this message translates to:
+  /// **'Or using other method'**
+  String get orUsingOtherMethod;
+
+  /// No description provided for @signInWithGoogle.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign In with Google'**
+  String get signInWithGoogle;
+
+  /// No description provided for @signInWithFacebook.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign In with Facebook'**
+  String get signInWithFacebook;
+
+  /// No description provided for @enterYourEmailOrPhoneNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your mail or phone number'**
+  String get enterYourEmailOrPhoneNumber;
+
+  /// No description provided for @sendCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Send Code'**
+  String get sendCode;
+
+  /// No description provided for @errorEmptyField.
+  ///
+  /// In en, this message translates to:
+  /// **'This field cannot be empty.'**
+  String get errorEmptyField;
+
+  /// No description provided for @errorValueTooLong.
+  ///
+  /// In en, this message translates to:
+  /// **'Value is too long, maximum allowed is {length}.'**
+  String errorValueTooLong(Object length);
+
+  /// No description provided for @errorValueTooShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Must be at least {length} characters.'**
+  String errorValueTooShort(Object length);
+
+  /// No description provided for @errorInvalidEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a valid email address.'**
+  String get errorInvalidEmail;
+
+  /// No description provided for @errorInvalidPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must be strong.'**
+  String get errorInvalidPassword;
+
+  /// No description provided for @errorPasswordMismatch.
+  ///
+  /// In en, this message translates to:
+  /// **'Passwords do not match.'**
+  String get errorPasswordMismatch;
+
+  /// No description provided for @errorInvalidPhoneNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid phone number format.'**
+  String get errorInvalidPhoneNumber;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

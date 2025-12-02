@@ -14,7 +14,7 @@ const ColorScheme lightColorScheme = ColorScheme(
   onSurface: Color(0xFF1B1B1F),
   onSurfaceVariant: Color(0xFF49454E),
   surfaceContainerHighest: Color(0xFFE7E0EC),
-  outline: Color(0xFF7A757F),
+  outline: Color(0xFFA6A6A6),
   shadow: Color(0xFF000000),
   inverseSurface: Color(0xFF303034),
   onInverseSurface: Color(0xFFF1F0F4),

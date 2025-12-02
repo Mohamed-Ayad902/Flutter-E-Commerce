@@ -89,4 +89,65 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get congratulationsRegister => 'Congratulation! your account already created.\nPlease login to get amazing experience.';
+
+  @override
+  String get loginAccountTitle => 'Login Account';
+
+  @override
+  String get loginAccountSubtitle => 'Please login with registered account';
+
+  @override
+  String get emailOrPhoneNumber => 'Email or Phone Number';
+
+  @override
+  String get enterEmailOrPhoneNumber => 'Enter your email or phone number';
+
+  @override
+  String get forgotPassword => 'Forgot Password?';
+
+  @override
+  String get signIn => 'Sign In';
+
+  @override
+  String get dontHaveAccount => 'Don\'t have an account? Signup';
+
+  @override
+  String get orUsingOtherMethod => 'Or using other method';
+
+  @override
+  String get signInWithGoogle => 'Sign In with Google';
+
+  @override
+  String get signInWithFacebook => 'Sign In with Facebook';
+
+  @override
+  String get enterYourEmailOrPhoneNumber => 'Enter your mail or phone number';
+
+  @override
+  String get sendCode => 'Send Code';
+
+  @override
+  String get errorEmptyField => 'This field cannot be empty.';
+
+  @override
+  String errorValueTooLong(Object length) {
+    return 'Value is too long, maximum allowed is $length.';
+  }
+
+  @override
+  String errorValueTooShort(Object length) {
+    return 'Must be at least $length characters.';
+  }
+
+  @override
+  String get errorInvalidEmail => 'Please enter a valid email address.';
+
+  @override
+  String get errorInvalidPassword => 'Password must be strong.';
+
+  @override
+  String get errorPasswordMismatch => 'Passwords do not match.';
+
+  @override
+  String get errorInvalidPhoneNumber => 'Invalid phone number format.';
 }
