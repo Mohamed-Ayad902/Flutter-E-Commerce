@@ -40,10 +40,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get alreadyHaveAccount => 'Already have an Account';
 
   @override
+  String get alreadyHaveAccountLogin => 'Already have an Account? Login';
+
+  @override
   String get startShoppingAfterAccount => 'Start shopping after creating your account';
 
   @override
-  String get username => 'username';
+  String get username => 'Username';
 
   @override
   String get createUsername => 'Create your username';
@@ -94,7 +97,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get registerSuccess => 'Register Success';
 
   @override
-  String get congratulationsRegister => 'Congratulation! your account already created.\nPlease login to get amazing experience.';
+  String get congratulationsRegister => 'Congratulation! your account already created.\nPlease verify your email and login to get amazing experience.';
 
   @override
   String get loginAccountTitle => 'Login Account';

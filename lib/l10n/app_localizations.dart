@@ -159,6 +159,12 @@ abstract class AppLocalizations {
   /// **'Already have an Account'**
   String get alreadyHaveAccount;
 
+  /// No description provided for @alreadyHaveAccountLogin.
+  ///
+  /// In en, this message translates to:
+  /// **'Already have an Account? Login'**
+  String get alreadyHaveAccountLogin;
+
   /// No description provided for @startShoppingAfterAccount.
   ///
   /// In en, this message translates to:
@@ -168,7 +174,7 @@ abstract class AppLocalizations {
   /// No description provided for @username.
   ///
   /// In en, this message translates to:
-  /// **'username'**
+  /// **'Username'**
   String get username;
 
   /// No description provided for @createUsername.
@@ -270,7 +276,7 @@ abstract class AppLocalizations {
   /// No description provided for @congratulationsRegister.
   ///
   /// In en, this message translates to:
-  /// **'Congratulation! your account already created.\nPlease login to get amazing experience.'**
+  /// **'Congratulation! your account already created.\nPlease verify your email and login to get amazing experience.'**
   String get congratulationsRegister;
 
   /// No description provided for @loginAccountTitle.

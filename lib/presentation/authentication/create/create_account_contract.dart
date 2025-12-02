@@ -51,8 +51,8 @@ enum CreateAccountFields {
 sealed class CreateAccountEffects {}
 
 class AccountCreated extends CreateAccountEffects {}
-class Failure extends CreateAccountEffects {
+class Error extends CreateAccountEffects {
   final CustomException exception;
 
-  Failure(this.exception);
+  Error(this.exception);
 }

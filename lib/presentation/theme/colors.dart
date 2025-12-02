@@ -19,6 +19,7 @@ const ColorScheme lightColorScheme = ColorScheme(
   inverseSurface: Color(0xFF303034),
   onInverseSurface: Color(0xFFF1F0F4),
   inversePrimary: Color(0xFFD0BCFF),
+  tertiaryContainer: Color(0xFF52BF37)
 );
 
 const ColorScheme darkColorScheme = ColorScheme(
@@ -40,4 +41,5 @@ const ColorScheme darkColorScheme = ColorScheme(
   inverseSurface: Color(0xFFE6E1E5),
   onInverseSurface: Color(0xFF1B1B1F),
   inversePrimary: Color(0xFF6768A7),
+  tertiaryContainer: Color(0xFF52BF37)
 );
