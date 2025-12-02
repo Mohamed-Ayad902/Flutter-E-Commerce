@@ -5,13 +5,15 @@ import '../../../../presentation/authentication/create/create_account_cubit.dart
 import '../../../../presentation/authentication/login/login_cubit.dart';
 import '../data/auth_repo.dart';
 import '../domain/create_account_uc.dart';
+import '../domain/login_uc.dart';
 
 Future<void> registerAuthenticationModule(GetIt getIt) async {
   getIt.registerLazySingleton<IAuthRepo>(() => AuthRepo(getIt(),getIt()));
 
   getIt.registerLazySingleton<CreateAccountUC>(() => CreateAccountUC(getIt()));
+  getIt.registerLazySingleton<LoginUc>(() => LoginUc(getIt()));
 
   getIt.registerFactory<CreateAccountCubit>(() => CreateAccountCubit(getIt()));
-  getIt.registerFactory<LoginCubit>(() => LoginCubit());
+  getIt.registerFactory<LoginCubit>(() => LoginCubit(getIt()));
 
 }

@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter_ecommerce/core/utils/logger.dart';
 
 /// Lightweight helper around `firebase_auth`.
 ///
@@ -76,24 +77,18 @@ class AuthenticationUtils {
       );
       final user = result.user;
       if (user != null) {
-        // send verification email (ignore failure here but log it)
         try {
           await user.sendEmailVerification();
-          if (kDebugMode) {
-            print('Verification email sent to ${user.email}');
-          }
+            logWarning('Verification email sent to ${user.email}');
         } catch (e) {
-          if (kDebugMode) {
-            print('sendVerificationEmail error: $e');
-          }
+            logError('sendVerificationEmail error: $e');
         }
+        await _auth.signOut();
         return user.uid;
       }
       return null;
     } catch (e, s) {
-      if (kDebugMode) {
-        print('createUser error: $e\n$s');
-      }
+        logInfo('createUser error: $e\n$s');
       return null;
     }
   }
@@ -156,5 +151,9 @@ class AuthenticationUtils {
   }
 
   /// Return currently signed-in user's uid or null.
-  String? getCurrentUserId() => _auth.currentUser?.uid;
+  String? getCurrentUserId() {
+    final user = _auth.currentUser;
+    if (user != null && user.emailVerified) return user.uid;
+    return null;
+  }
 }

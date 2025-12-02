@@ -3,14 +3,14 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ecommerce/core/extensions/context_extensions.dart';
-import 'package:flutter_ecommerce/presentation/authentication/create/create_account_screen.dart';
 import 'package:flutter_ecommerce/presentation/authentication/login/login_cubit.dart';
 import 'package:flutter_ecommerce/presentation/authentication/login/login_screen.dart';
+import 'package:flutter_ecommerce/presentation/main/home/home_cubit.dart';
+import 'package:flutter_ecommerce/presentation/main/home/home_screen.dart';
 import 'package:flutter_ecommerce/presentation/splash/splash_contract.dart';
 import 'package:flutter_ecommerce/presentation/splash/splash_cubit.dart';
 
 import '../../di/app_modules.dart';
-import '../authentication/create/create_account_cubit.dart';
 import '../onboarding/onboarding_cubit.dart';
 import '../onboarding/onboarding_screen.dart';
 import '../theme/app_theme.dart';
@@ -67,9 +67,9 @@ class _SplashScreenState extends State<SplashScreen> {
   void _navigateToHome() {
     Navigator.of(context).pushReplacement(
       MaterialPageRoute(
-        builder: (_) => BlocProvider<CreateAccountCubit>(
-          create: (_) => getIt<CreateAccountCubit>(),
-          child: CreateAccountScreen(),
+        builder: (_) => BlocProvider<HomeCubit>(
+          create: (_) => getIt<HomeCubit>(),
+          child: HomeScreen(),
         ),
       ),
     );

@@ -42,9 +42,10 @@ enum LoginFields {
 
 sealed class LoginEffects {}
 
-class AccountCreated extends LoginEffects {}
-class Failure extends LoginEffects {
+class LoginSuccess extends LoginEffects {}
+class VerifyAccount extends LoginEffects {}
+class Error extends LoginEffects {
   final CustomException exception;
 
-  Failure(this.exception);
+  Error(this.exception);
 }

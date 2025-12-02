@@ -88,6 +88,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get submit => 'Submit';
 
   @override
+  String get pleaseVerify => 'Please verify your email to continue to the app';
+
+  @override
   String get notReceivedCore => 'Didn\'t receive the code?';
 
   @override

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ecommerce/assets/app_assets.dart';
@@ -6,10 +8,13 @@ import 'package:flutter_ecommerce/core/extensions/error_code_extension.dart';
 import 'package:flutter_ecommerce/presentation/authentication/create/create_account_cubit.dart';
 import 'package:flutter_ecommerce/presentation/authentication/create/create_account_screen.dart';
 import 'package:flutter_ecommerce/presentation/authentication/login/login_contract.dart';
+import 'package:flutter_ecommerce/presentation/main/home/home_cubit.dart';
+import 'package:flutter_ecommerce/presentation/main/home/home_screen.dart';
 import 'package:flutter_ecommerce/presentation/theme/window_size_class.dart';
 
 import '../../../di/app_modules.dart';
 import '../../components/button.dart';
+import '../../components/events.dart';
 import '../../components/text_field.dart';
 import '../../theme/app_theme.dart';
 import '../common/common_widgets.dart';
@@ -25,11 +30,52 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  StreamSubscription<LoginEffects>? _effectsSubscription;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _effectsSubscription = context
+          .read<LoginCubit>()
+          .effects
+          .listen(_handleEffects);
+    });
+  }
+
+  void _handleEffects(LoginEffects effect) {
+    if (!mounted) return;
+
+    final colors = AppTheme.colorsOf(context);
+    final strings = context.localization;
+
+    switch (effect) {
+      case LoginSuccess():
+        // navigate to home.
+        Navigator.of(context).pushReplacement(MaterialPageRoute(
+          builder: (_) => BlocProvider<HomeCubit>(
+            create: (_) => getIt<HomeCubit>(),
+            child: HomeScreen(),
+          ),
+        ));
+        break;
+
+      case VerifyAccount():
+        showCustomSnackBar(context, strings.pleaseVerify, icon: Icons.error_outline);
+        break;
+
+      case Error():
+        showCustomSnackBar(context, effect.exception.messageKey,
+            color: colors.error, icon: Icons.error_outline);
+        break;
+    }
+  }
 
   @override
   void dispose() {
     _emailController.dispose();
     _passwordController.dispose();
+    _effectsSubscription?.cancel();
     super.dispose();
   }
 
@@ -70,8 +116,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     SizedBox(height: dimens.mediumLarge),
                     AppButton(
+                      isLoading: state.isLoading,
                       text: strings.signIn,
-                      onPressed: cubit.submitLogin,
+                      onPressed: () => cubit.login(),
                     ),
                     SizedBox(height: dimens.small),
                     _signUp(context),

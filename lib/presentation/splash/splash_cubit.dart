@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_ecommerce/core/utils/logger.dart';
 import '../../core/feature/onboarding/domain/usecases/get_current_user_id_usecase.dart';
 import '../../core/feature/onboarding/domain/usecases/get_is_first_time_usecase.dart';
 import '../../core/utils/resources.dart';
@@ -8,15 +9,15 @@ import 'splash_contract.dart';
 
 class SplashCubit extends Cubit<SplashState> {
   final _effectController = StreamController<SplashSideEffects>.broadcast();
-  final GetIsFirstTimeUC getIsFirstTimeUC;
-  final GetCurrentUserIdUsecase getCurrentUserIdUsecase;
+  final GetIsFirstTimeUC _getIsFirstTimeUC;
+  final GetCurrentUserIdUsecase _getCurrentUserIdUsecase;
 
   Stream<SplashSideEffects> get effects => _effectController.stream;
 
   SplashCubit({
-    required this.getIsFirstTimeUC,
-    required this.getCurrentUserIdUsecase
-  }) : super(SplashState()) {
+    required GetIsFirstTimeUC getIsFirstTimeUC,
+    required GetCurrentUserIdUsecase getCurrentUserIdUsecase
+  }) : _getCurrentUserIdUsecase = getCurrentUserIdUsecase, _getIsFirstTimeUC = getIsFirstTimeUC, super(SplashState()) {
     _checkNavigationFlow();
   }
 
@@ -30,7 +31,7 @@ class SplashCubit extends Cubit<SplashState> {
       return;
     } else {
 
-      await for (final res in getIsFirstTimeUC.call()) {
+      await for (final res in _getIsFirstTimeUC.call()) {
         switch (res) {
           case Loading<bool>():
             continue;
@@ -55,11 +56,12 @@ class SplashCubit extends Cubit<SplashState> {
   }
 
   Future<bool> _checkIsLoggedIn() async {
-    await for (final res in getCurrentUserIdUsecase.call()){
+    await for (final res in _getCurrentUserIdUsecase.call()){
       switch (res){
         case Loading<String?>():
-          continue;
+          break;
         case Success<String?>(data: final userId):
+          logInfo("_checkIsLoggedIn: $userId");
           return userId != null;
         case Failure<String?>():
           return false;

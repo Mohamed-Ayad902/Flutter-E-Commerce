@@ -255,6 +255,12 @@ abstract class AppLocalizations {
   /// **'Submit'**
   String get submit;
 
+  /// No description provided for @pleaseVerify.
+  ///
+  /// In en, this message translates to:
+  /// **'Please verify your email to continue to the app'**
+  String get pleaseVerify;
+
   /// No description provided for @notReceivedCore.
   ///
   /// In en, this message translates to:
