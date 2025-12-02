@@ -1,4 +1,4 @@
-import '../../../../constants/constants.dart';
+import '../../../constants/constants.dart';
 
 class CreateAccountRequest {
   final String name;

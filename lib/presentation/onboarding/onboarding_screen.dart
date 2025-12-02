@@ -64,7 +64,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       switch (eff) {
         case NavigateToLogin():
           if (!mounted) return;
-          // here we should navigate to signup login screen
+          // here we should navigate to create login screen
           Navigator.of(context).pushReplacement(
             MaterialPageRoute(
               builder: (_) => BlocProvider<OnboardingCubit>(

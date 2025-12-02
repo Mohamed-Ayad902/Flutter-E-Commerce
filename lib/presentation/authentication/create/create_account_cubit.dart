@@ -1,10 +1,10 @@
 import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_ecommerce/core/feature/authentication/domain/create_account_request.dart';
+import 'package:flutter_ecommerce/core/feature/authentication/domain/create_account_uc.dart';
 import 'package:flutter_ecommerce/core/utils/resources.dart';
 
-import '../../../core/feature/authentication/signup/domain/create_account_request.dart';
-import '../../../core/feature/authentication/signup/domain/create_account_uc.dart';
 import '../../../core/validation/field.dart';
 import '../../../core/validation/forms_validator.dart';
 import '../../../core/validation/validation.dart';

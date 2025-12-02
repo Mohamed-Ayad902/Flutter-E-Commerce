@@ -1,7 +1,7 @@
 import 'package:flutter_ecommerce/di/storage_module.dart';
 import 'package:get_it/get_it.dart';
 
-import '../core/feature/authentication/signup/di/auth_module.dart';
+import '../core/feature/authentication/di/auth_module.dart';
 import '../core/feature/onboarding/di/onboarding_module.dart';
 import 'firebase_module.dart';
 
