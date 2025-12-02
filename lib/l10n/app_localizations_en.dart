@@ -40,10 +40,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get alreadyHaveAccount => 'Already have an Account';
 
   @override
+  String get alreadyHaveAccountLogin => 'Already have an Account? Login';
+
+  @override
   String get startShoppingAfterAccount => 'Start shopping after creating your account';
 
   @override
-  String get username => 'username';
+  String get username => 'Username';
 
   @override
   String get createUsername => 'Create your username';
@@ -56,6 +59,12 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get password => 'Password';
+
+  @override
+  String get rePassword => 'Confirm Password';
+
+  @override
+  String get rePasswordConfirm => 'Confirm your Password';
 
   @override
   String get createPassword => 'Create your password';
@@ -88,7 +97,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get registerSuccess => 'Register Success';
 
   @override
-  String get congratulationsRegister => 'Congratulation! your account already created.\nPlease login to get amazing experience.';
+  String get congratulationsRegister => 'Congratulation! your account already created.\nPlease verify your email and login to get amazing experience.';
 
   @override
   String get loginAccountTitle => 'Login Account';
@@ -97,10 +106,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get loginAccountSubtitle => 'Please login with registered account';
 
   @override
-  String get emailOrPhoneNumber => 'Email or Phone Number';
+  String get emailAddress => 'Email address';
 
   @override
-  String get enterEmailOrPhoneNumber => 'Enter your email or phone number';
+  String get enterEmailAddress => 'Enter your email address';
 
   @override
   String get forgotPassword => 'Forgot Password?';
@@ -119,6 +128,12 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get signInWithFacebook => 'Sign In with Facebook';
+
+  @override
+  String get signUpWithFacebook => 'Sign Up with Facebook';
+
+  @override
+  String get signUpWithGoogle => 'Sign Up with Google';
 
   @override
   String get enterYourEmailOrPhoneNumber => 'Enter your mail or phone number';

@@ -2,15 +2,21 @@ import 'package:flutter/material.dart';
 
 import '../theme/app_theme.dart';
 
-void showCustomSnackBar(BuildContext context,String message, Color color, IconData icon) {
+void showCustomSnackBar(BuildContext context, String message, {int duration = 3,Color? color,IconData? icon}) {
   final dimens = AppTheme.dimensOf(context);
+  final colors = AppTheme.colorsOf(context);
+
+  final snackBarColor = color ?? colors.primary;
 
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
       content: Row(
         children: [
-          Icon(icon, color: Colors.white, size: 20),
-          SizedBox(width: dimens.small),
+          if (icon != null) ...[
+            Icon(icon, color: Colors.white, size: 20),
+            SizedBox(width: dimens.small),
+          ],
+
           Expanded(
             child: Text(
               message,
@@ -22,13 +28,13 @@ void showCustomSnackBar(BuildContext context,String message, Color color, IconDa
           ),
         ],
       ),
-      backgroundColor: color,
+      backgroundColor: snackBarColor,
       behavior: SnackBarBehavior.floating,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(dimens.small),
       ),
       margin: EdgeInsets.all(dimens.smallMedium),
-      duration: const Duration(seconds: 3),
+      duration: Duration(seconds: duration),
     ),
   );
 }

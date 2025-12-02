@@ -159,6 +159,12 @@ abstract class AppLocalizations {
   /// **'Already have an Account'**
   String get alreadyHaveAccount;
 
+  /// No description provided for @alreadyHaveAccountLogin.
+  ///
+  /// In en, this message translates to:
+  /// **'Already have an Account? Login'**
+  String get alreadyHaveAccountLogin;
+
   /// No description provided for @startShoppingAfterAccount.
   ///
   /// In en, this message translates to:
@@ -168,7 +174,7 @@ abstract class AppLocalizations {
   /// No description provided for @username.
   ///
   /// In en, this message translates to:
-  /// **'username'**
+  /// **'Username'**
   String get username;
 
   /// No description provided for @createUsername.
@@ -194,6 +200,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Password'**
   String get password;
+
+  /// No description provided for @rePassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm Password'**
+  String get rePassword;
+
+  /// No description provided for @rePasswordConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm your Password'**
+  String get rePasswordConfirm;
 
   /// No description provided for @createPassword.
   ///
@@ -258,7 +276,7 @@ abstract class AppLocalizations {
   /// No description provided for @congratulationsRegister.
   ///
   /// In en, this message translates to:
-  /// **'Congratulation! your account already created.\nPlease login to get amazing experience.'**
+  /// **'Congratulation! your account already created.\nPlease verify your email and login to get amazing experience.'**
   String get congratulationsRegister;
 
   /// No description provided for @loginAccountTitle.
@@ -273,17 +291,17 @@ abstract class AppLocalizations {
   /// **'Please login with registered account'**
   String get loginAccountSubtitle;
 
-  /// No description provided for @emailOrPhoneNumber.
+  /// No description provided for @emailAddress.
   ///
   /// In en, this message translates to:
-  /// **'Email or Phone Number'**
-  String get emailOrPhoneNumber;
+  /// **'Email address'**
+  String get emailAddress;
 
-  /// No description provided for @enterEmailOrPhoneNumber.
+  /// No description provided for @enterEmailAddress.
   ///
   /// In en, this message translates to:
-  /// **'Enter your email or phone number'**
-  String get enterEmailOrPhoneNumber;
+  /// **'Enter your email address'**
+  String get enterEmailAddress;
 
   /// No description provided for @forgotPassword.
   ///
@@ -320,6 +338,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Sign In with Facebook'**
   String get signInWithFacebook;
+
+  /// No description provided for @signUpWithFacebook.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign Up with Facebook'**
+  String get signUpWithFacebook;
+
+  /// No description provided for @signUpWithGoogle.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign Up with Google'**
+  String get signUpWithGoogle;
 
   /// No description provided for @enterYourEmailOrPhoneNumber.
   ///
