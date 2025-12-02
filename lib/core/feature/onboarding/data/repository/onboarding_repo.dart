@@ -7,22 +7,22 @@ import '../../domain/repository/i_onboarding_repo.dart';
 
 class OnboardingRepo implements IOnboardingRepo {
   static const _key = Constants.isFirstAppRun;
-  final IStorageKeyValueFile storage;
-  final AuthenticationUtils authUtils;
+  final IStorageKeyValueFile _storage;
+  final AuthenticationUtils _authUtils;
 
-  OnboardingRepo(this.storage,this.authUtils);
+  OnboardingRepo(this._storage,this._authUtils);
 
   @override
   Future<void> changeIsFirstTime() async {
-    await storage.storageKV.saveBool(_key, false);
+    await _storage.storageKV.saveBool(_key, false);
   }
 
   @override
   Future<bool> isFirstTime() async {
-    return await storage.storageKV.readBool(_key, true);
+    return await _storage.storageKV.readBool(_key, true);
   }
 
   @override
-  String? getUserId() => authUtils.getCurrentUserId();
+  String? getUserId() => _authUtils.getCurrentUserId();
 
 }

@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_ecommerce/core/constants/constants.dart';
 import 'package:flutter_ecommerce/core/feature/authentication/domain/auth_repo.dart';
 import 'package:flutter_ecommerce/core/feature/authentication/domain/create_account_request.dart';
+import 'package:flutter_ecommerce/core/feature/authentication/domain/login_request.dart';
 import 'package:flutter_ecommerce/core/firebase/authentication_utils.dart';
 import 'package:flutter_ecommerce/core/firebase/firestore_utils.dart';
 
@@ -33,5 +34,15 @@ class AuthRepo implements IAuthRepo{
       documentId: uid,
       data: profile,
     );
+  }
+
+  @override
+  Future<bool> login(LoginRequest request) async {
+    final user = await _auth.login(
+        email: request.email,
+        password: request.password
+    );
+
+    return user !=null;
   }
 }
