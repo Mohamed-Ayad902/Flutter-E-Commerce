@@ -52,5 +52,13 @@
   "errorInvalidEmail": "Please enter a valid email address.",
   "errorInvalidPassword": "Password must be strong.",
   "errorPasswordMismatch": "Passwords do not match.",
-  "errorInvalidPhoneNumber": "Invalid phone number format."
+  "errorInvalidPhoneNumber": "Invalid phone number format.",
+  "home": "Home",
+  "myCart": "My Cart",
+  "favorite": "Favorite",
+  "myProfile": "My Profile",
+  "category": "Category",
+  "letsShopping": "Let's go shopping",
+  "newArrivals": "New Arrivals",
+  "seeAll": "See All"
 }

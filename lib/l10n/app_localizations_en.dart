@@ -168,4 +168,28 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get errorInvalidPhoneNumber => 'Invalid phone number format.';
+
+  @override
+  String get home => 'Home';
+
+  @override
+  String get myCart => 'My Cart';
+
+  @override
+  String get favorite => 'Favorite';
+
+  @override
+  String get myProfile => 'My Profile';
+
+  @override
+  String get category => 'Category';
+
+  @override
+  String get letsShopping => 'Let\'s go shopping';
+
+  @override
+  String get newArrivals => 'New Arrivals';
+
+  @override
+  String get seeAll => 'See All';
 }

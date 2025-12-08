@@ -8,14 +8,13 @@ import 'package:flutter_ecommerce/core/extensions/error_code_extension.dart';
 import 'package:flutter_ecommerce/presentation/authentication/create/create_account_cubit.dart';
 import 'package:flutter_ecommerce/presentation/authentication/create/create_account_screen.dart';
 import 'package:flutter_ecommerce/presentation/authentication/login/login_contract.dart';
-import 'package:flutter_ecommerce/presentation/main/home/home_cubit.dart';
-import 'package:flutter_ecommerce/presentation/main/home/home_screen.dart';
 import 'package:flutter_ecommerce/presentation/theme/window_size_class.dart';
 
 import '../../../di/app_modules.dart';
 import '../../components/button.dart';
 import '../../components/events.dart';
 import '../../components/text_field.dart';
+import '../../main/main_screen.dart';
 import '../../theme/app_theme.dart';
 import '../common/common_widgets.dart';
 import 'login_cubit.dart';
@@ -53,10 +52,7 @@ class _LoginScreenState extends State<LoginScreen> {
       case LoginSuccess():
         // navigate to home.
         Navigator.of(context).pushReplacement(MaterialPageRoute(
-          builder: (_) => BlocProvider<HomeCubit>(
-            create: (_) => getIt<HomeCubit>(),
-            child: HomeScreen(),
-          ),
+          builder: (_) => MainScreen(),
         ));
         break;
 
@@ -91,6 +87,7 @@ class _LoginScreenState extends State<LoginScreen> {
           padding: EdgeInsets.all(dimens.smallMedium),
           child: SingleChildScrollView(
             child: BlocBuilder<LoginCubit, LoginState>(
+              buildWhen: (previous, current) => previous!= current,
               builder: (context, state) {
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
