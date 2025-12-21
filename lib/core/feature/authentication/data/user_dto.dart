@@ -6,21 +6,23 @@ class UserDto {
   final String uid;
   final String name;
   final String email;
-  final Timestamp? createdAt;
+  final Timestamp createdAt;
 
   UserDto({
     required this.uid,
     required this.name,
     required this.email,
-    this.createdAt,
+    required this.createdAt,
   });
 
-  factory UserDto.fromCreate({
-    required String uid,
-    required String name,
-    required String email,
-  }) {
-    return UserDto(uid: uid, name: name, email: email, createdAt: null);
+  static UserDto fromFirestore(DocumentSnapshot<Map<String, dynamic>> snapshot) {
+    final data = snapshot.data() ?? {};
+    return UserDto(
+      uid: data[Constants.uid],
+      name: data[Constants.name],
+      email: data[Constants.email],
+      createdAt: data[Constants.createdAt],
+    );
   }
 
   Map<String, dynamic> toMap() {

@@ -1,3 +1,5 @@
+import 'package:flutter_ecommerce/core/feature/products/products_di_module.dart';
+import 'package:flutter_ecommerce/core/feature/profile/profile_di_module.dart';
 import 'package:flutter_ecommerce/di/storage_module.dart';
 import 'package:get_it/get_it.dart';
 
@@ -14,5 +16,9 @@ Future<void> provideDependencies({bool autoStartGetNotes = false}) async {
 
   await registerOnboardingModule(getIt);
   await registerAuthenticationModule(getIt);
+
+  await registerProductsModule(getIt);
+  await registerProfileModule(getIt);
+
   getIt.registerFactory<BottomNavCubit>(() => BottomNavCubit());
 }

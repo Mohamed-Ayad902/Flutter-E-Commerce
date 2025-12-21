@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_ecommerce/core/constants/constants.dart';
+import 'package:flutter_ecommerce/core/feature/authentication/data/user_dto.dart';
 import 'package:flutter_ecommerce/core/feature/authentication/domain/auth_repo.dart';
 import 'package:flutter_ecommerce/core/feature/authentication/domain/create_account_request.dart';
 import 'package:flutter_ecommerce/core/feature/authentication/domain/login_request.dart';
@@ -19,20 +20,12 @@ class AuthRepo implements IAuthRepo{
       password: request.password,
     );
 
-    if (uid == null) {
-      return;
-    }
+    if (uid == null) return;
 
-    final Map<String, dynamic> profile = {
-      ...request.toMap(),
-      Constants.uid: uid,
-      Constants.createdAt: FieldValue.serverTimestamp(),
-    };
-
+    final userDto = UserDto(uid: uid, name: request.name, email: request.email, createdAt: Timestamp.now());
     await _firestore.saveDocument(
       collectionPath: [Constants.users],
-      documentId: uid,
-      data: profile,
+      data: userDto.toMap(),
     );
   }
 
