@@ -1,3 +1,5 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
@@ -19,19 +21,22 @@ class AppLocalizationsEn extends AppLocalizations {
   String get clothesTitle => 'Style That Suits You';
 
   @override
-  String get clothesDescription => 'Browse the latest trends and timeless essentials. Find outfits that match your lifestyle';
+  String get clothesDescription =>
+      'Browse the latest trends and timeless essentials. Find outfits that match your lifestyle';
 
   @override
   String get booksTitle => 'Stories at Your Fingertips';
 
   @override
-  String get booksDescription => 'From bestsellers to hidden gems, explore a world of knowledge and imagination.';
+  String get booksDescription =>
+      'From bestsellers to hidden gems, explore a world of knowledge and imagination.';
 
   @override
   String get electronicsTitle => 'Power Up Your Life';
 
   @override
-  String get electronicsDescription => 'Discover cutting-edge gadgets and tech that make everyday living smarter and easier.';
+  String get electronicsDescription =>
+      'Discover cutting-edge gadgets and tech that make everyday living smarter and easier.';
 
   @override
   String get createAccount => 'Create Account';
@@ -43,7 +48,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get alreadyHaveAccountLogin => 'Already have an Account? Login';
 
   @override
-  String get startShoppingAfterAccount => 'Start shopping after creating your account';
+  String get startShoppingAfterAccount =>
+      'Start shopping after creating your account';
 
   @override
   String get username => 'Username';
@@ -100,7 +106,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get registerSuccess => 'Register Success';
 
   @override
-  String get congratulationsRegister => 'Congratulation! your account already created.\nPlease verify your email and login to get amazing experience.';
+  String get congratulationsRegister =>
+      'Congratulation! your account already created.\nPlease verify your email and login to get amazing experience.';
 
   @override
   String get loginAccountTitle => 'Login Account';

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/core/base/base_view.dart';
-import 'package:flutter_ecommerce/presentation/main/profile/profile_cubit.dart';
+import 'package:flutter_ecommerce/presentation/main/profile/profile_bloc.dart';
 
-class ProfileScreen extends BaseScreen<ProfileCubit> {
+class ProfileScreen extends BaseScreen<ProfileBloc> {
   const ProfileScreen({super.key});
 
   @override
@@ -13,4 +13,7 @@ class ProfileScreen extends BaseScreen<ProfileCubit> {
       ),
     );
   }
+
+  @override
+  onInit() => null;
 }

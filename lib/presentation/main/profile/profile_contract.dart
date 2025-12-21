@@ -6,6 +6,12 @@ class ProfileState extends Equatable{
 
 }
 
+// -------------- U S E R - I N T E N T S --------------
+
+abstract class ProfileIntents {}
+
+class GetProfile implements ProfileIntents {}
+
 // -------------- O N E - T I M E - E V E N T S --------------
 
 sealed class ProfileEffects {}

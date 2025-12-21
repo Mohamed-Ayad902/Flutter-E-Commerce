@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/core/base/base_view.dart';
-import 'package:flutter_ecommerce/presentation/main/favorite/favorite_cubit.dart';
+import 'package:flutter_ecommerce/presentation/main/favorite/favorite_bloc.dart';
 
-class FavoriteScreen extends BaseScreen<FavoriteCubit> {
+import 'favorite_contract.dart';
+
+class FavoriteScreen extends BaseScreen<FavoriteBloc> {
   const FavoriteScreen({super.key});
 
   @override
+  FavoriteIntents? onInit() => null;
+
+  @override
   Widget body(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Text("Favorite Screen"),
-      ),
+    return const Scaffold(
+      body: Center(child: Text("Favorite Screen")),
     );
   }
 }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ecommerce/core/base/base_view.dart';
 import 'package:flutter_ecommerce/core/extensions/context_extensions.dart';
-import 'package:flutter_ecommerce/presentation/main/bottom_nav_cubit.dart';
+import 'package:flutter_ecommerce/presentation/main/bottom_nav_bloc.dart';
 import 'package:flutter_ecommerce/presentation/main/favorite/favorite_screen.dart';
 import 'package:flutter_ecommerce/presentation/main/profile/profile_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -12,7 +12,7 @@ import '../theme/app_theme.dart';
 import 'cart/cart_screen.dart';
 import 'home/home_screen.dart';
 
-class MainScreen extends BaseScreen<BottomNavCubit> {
+class MainScreen extends BaseScreen<BottomNavBloc> {
   const MainScreen({super.key});
 
   final List<Widget> _screens = const [
@@ -27,7 +27,7 @@ class MainScreen extends BaseScreen<BottomNavCubit> {
     final strings = context.localization;
 
     return Scaffold(
-      body: BlocBuilder<BottomNavCubit, int>(
+      body: BlocBuilder<BottomNavBloc, int>(
         buildWhen: (previous, current) => previous != current,
         builder: (context, currentIndex) {
           return IndexedStack(
@@ -36,12 +36,12 @@ class MainScreen extends BaseScreen<BottomNavCubit> {
           );
         },
       ),
-      bottomNavigationBar: BlocBuilder<BottomNavCubit, int>(
+      bottomNavigationBar: BlocBuilder<BottomNavBloc, int>(
           buildWhen: (previous, current) => previous != current,
           builder: (context, currentIndex) {
             return CustomBottomNavBar(
               currentIndex: currentIndex,
-              onTap: (index) => context.read<BottomNavCubit>().selectTab(index),
+              onTap: (index) => context.read<BottomNavBloc>().add(SelectTab(index)),
               items: [
                 NavBarItemData(
                   selectedIcon: AppAssets.homeFilled,
@@ -68,6 +68,9 @@ class MainScreen extends BaseScreen<BottomNavCubit> {
           }),
     );
   }
+
+  @override
+  BottomNavBlocIntents? onInit() => null;
 }
 
 class CustomBottomNavBar extends StatelessWidget {

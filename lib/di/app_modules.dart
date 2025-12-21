@@ -5,7 +5,7 @@ import 'package:get_it/get_it.dart';
 
 import '../core/feature/authentication/di/auth_module.dart';
 import '../core/feature/onboarding/di/onboarding_module.dart';
-import '../presentation/main/bottom_nav_cubit.dart';
+import '../presentation/main/home/main_di_module.dart';
 import 'firebase_module.dart';
 
 final getIt = GetIt.instance;
@@ -20,5 +20,5 @@ Future<void> provideDependencies({bool autoStartGetNotes = false}) async {
   await registerProductsModule(getIt);
   await registerProfileModule(getIt);
 
-  getIt.registerFactory<BottomNavCubit>(() => BottomNavCubit());
+  await registerMainModule(getIt);
 }
