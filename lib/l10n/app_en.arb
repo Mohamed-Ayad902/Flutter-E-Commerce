@@ -60,5 +60,7 @@
   "category": "Category",
   "letsShopping": "Let's go shopping",
   "newArrivals": "New Arrivals",
-  "seeAll": "See All"
+  "seeAll": "See All",
+  "welcomeUser": "Hi, {user}",
+  "goShopping": "Let's go shopping!"
 }

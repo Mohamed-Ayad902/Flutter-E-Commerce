@@ -20,6 +20,8 @@ class AppAssets {
   static String profileNotFilled = _icon(name: "profile");
   static String favoriteNotFilled = _icon(name: "favorite_not_filled");
   static String favoriteFilled = _icon(name: "favorite_filled");
+  static String notifications = _icon(name: "notification");
+  static String search = _icon(name: "search");
 }
 
 String _image({required String name, String extension = "jpeg"}) {

@@ -199,4 +199,12 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get seeAll => 'See All';
+
+  @override
+  String welcomeUser(Object user) {
+    return 'Hi, $user';
+  }
+
+  @override
+  String get goShopping => 'Let\'s go shopping!';
 }

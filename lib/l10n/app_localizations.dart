@@ -459,6 +459,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'See All'**
   String get seeAll;
+
+  /// No description provided for @welcomeUser.
+  ///
+  /// In en, this message translates to:
+  /// **'Hi, {user}'**
+  String welcomeUser(Object user);
+
+  /// No description provided for @goShopping.
+  ///
+  /// In en, this message translates to:
+  /// **'Let\'s go shopping!'**
+  String get goShopping;
 }
 
 class _AppLocalizationsDelegate
