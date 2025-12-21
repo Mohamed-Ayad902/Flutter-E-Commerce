@@ -2,6 +2,9 @@ class AppAssets {
   static String books = _image(name: "books");
   static String clothes = _image(name: "clothes");
   static String electronics = _image(name: "electronics");
+  static String bag = _image(name: "bag", extension: "png");
+  static String fashion = _image(name: "fashion", extension: "png");
+  static String headphone = _image(name: "headphone", extension: "png");
   static String email = _icon(name: "email");
   static String lock = _icon(name: "lock");
   static String facebook = _icon(name: "facebook");

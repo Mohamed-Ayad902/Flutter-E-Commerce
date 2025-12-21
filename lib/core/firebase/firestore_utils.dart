@@ -79,9 +79,9 @@ class OrderBy extends QueryOperation {
 
 /// Firestore utilities supporting nested collections, queries, realtime, pagination.
 class FirebaseUtils {
-  final FirebaseFirestore firestore;
+  final FirebaseFirestore _firestore;
 
-  FirebaseUtils(this.firestore);
+  FirebaseUtils(this._firestore);
 
   // -------------------------
   // Helpers for path building
@@ -95,7 +95,7 @@ class FirebaseUtils {
           'Document path must be even length and at least 2 (collection, doc).');
     }
 
-    var docRef = firestore.collection(pathSegments[0]).doc(pathSegments[1]);
+    var docRef = _firestore.collection(pathSegments[0]).doc(pathSegments[1]);
     for (var i = 2; i < pathSegments.length; i += 2) {
       final coll = pathSegments[i];
       final doc = pathSegments[i + 1];
@@ -111,7 +111,7 @@ class FirebaseUtils {
       throw ArgumentError('Collection path must not be empty.');
     }
     if (pathSegments.length == 1) {
-      return firestore.collection(pathSegments[0]);
+      return _firestore.collection(pathSegments[0]);
     }
     // must be odd length: collection, doc, collection, doc, collection ...
     if (pathSegments.length % 2 == 0) {
@@ -119,7 +119,7 @@ class FirebaseUtils {
           'Collection path must end with a collection name (odd length).');
     }
 
-    CollectionReference col = firestore.collection(pathSegments[0]);
+    CollectionReference col = _firestore.collection(pathSegments[0]);
     for (var i = 1; i < pathSegments.length; i += 2) {
       final doc = pathSegments[i];
       final nextCollection = pathSegments[i + 1];
@@ -133,7 +133,7 @@ class FirebaseUtils {
   // -------------------------
 
   String generateId(String collectionName) =>
-      firestore.collection(collectionName).doc().id;
+      _firestore.collection(collectionName).doc().id;
 
   Future<bool> documentExists(List<String> documentPath) async {
     final ref = _documentRefFromPath(documentPath);
@@ -296,14 +296,14 @@ class FirebaseUtils {
   /// object and can perform reads and writes. It must be async and return a value or null.
   Future<T> runTransaction<T>(
       Future<T> Function(Transaction transaction) transactionHandler) {
-    return firestore.runTransaction<T>((tx) async {
+    return _firestore.runTransaction<T>((tx) async {
       return transactionHandler(tx);
     });
   }
 
   /// Run a batch. Pass a function that receives WriteBatch to populate writes.
   Future<void> runBatch(FutureOr<void> Function(WriteBatch batch) batchHandler) async {
-    final batch = firestore.batch();
+    final batch = _firestore.batch();
     await Future.sync(() => batchHandler(batch));
     await batch.commit();
   }
